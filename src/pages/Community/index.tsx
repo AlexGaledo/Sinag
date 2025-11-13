@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 const Community: React.FC = () => {
   const totalCO2 = 2350; // kg
   const totalTokens = 12340;
-  const userCityRank = 12; // sample
+  const userCityRank = 12;  // sample
   const [activeNav, setActiveNav] = useState<string>('Dashboard');
       const navigate = useNavigate();
       const location = useLocation();
@@ -24,7 +24,12 @@ const Community: React.FC = () => {
       }, [location.pathname]);
    
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="relative min-h-screen bg-black text-white overflow-hidden pt-28">
+      {/* 🔶 Background glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#fda405]/20 via-[#f77700]/10 to-transparent blur-1x2"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-gradient-radial from-[#ff8a00]/25 to-transparent blur-[200px] rounded-full"></div>
+      <div className="relative z-10 p-6 max-w-7xl mx-auto">
+    
       {/* Centered Navbar */}
               <section className="mb-6">
                 <div className="flex justify-center">
@@ -67,14 +72,14 @@ const Community: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         <div className="lg:col-span-2">
           <Leaderboard currentUser="Kien" />
-          <div className="mt-4 p-4 bg-neutral-900 rounded border border-neutral-800">
+          <div className="mt-5 p-4 bg-neutral rounded border border-neutral-800">
             <h4 className="font-semibold">You're #{userCityRank} in your city!</h4>
             <p className="text-sm text-neutral-400">Keep participating in challenges to climb the leaderboard and earn more SINAG tokens.</p>
           </div>
         </div>
 
         <aside className="space-y-4">
-          <div className="p-4 bg-neutral-900 rounded border border-neutral-800">
+          <div className="bg-white/3 border border-white/[0.02]  backdrop-blur-md shadow-[inset_0px_1px_1px_1px_rgba(255,255,255,0.12)] rounded-lg p-6">
             <h4 className="font-semibold">Community Stats</h4>
             <div className="mt-3 grid grid-cols-2 gap-3">
               <div className="p-3 bg-neutral-950/20 rounded">
@@ -88,7 +93,7 @@ const Community: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-4 bg-neutral-900 rounded border border-neutral-800">
+          <div className="p-4 bg-neutral rounded border border-neutral-800">
             <h4 className="font-semibold">Regional Impact</h4>
             <div className="mt-3 h-40 bg-neutral-950/10 rounded flex items-center justify-center text-neutral-500">
               {/* Placeholder for animated map of the Philippines */}
@@ -112,6 +117,7 @@ const Community: React.FC = () => {
           </div>
         </div>
       </section>
+    </div>
     </div>
   );
 };

@@ -76,8 +76,8 @@ export default function Header() {
   };
     
   return (
-    <header className="bg-blue-900">
-      <div className="flex justify-end mb-20 m-4 gap-10">
+    <header className="absolute top-0 left-0 right-0 z-50">
+      <div className="flex justify-end mb-5 m-4 mt-10 gap-10">
         <button className={buttonStyle} onClick={checkWallet}>
           Check Balance {wallet && !isLoading && data ? `` : ''}
         </button>

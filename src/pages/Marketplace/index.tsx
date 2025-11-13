@@ -43,7 +43,11 @@ const Marketplace: React.FC = () => {
     }, [location.pathname]);
     
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="relative min-h-screen bg-black text-white overflow-hidden pt-28">
+       {/* 🔶 Background glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#ffb84d]/20 via-[#ff8a00]/5 to-transparent blur-1xl"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-gradient-radial from-[#ff8a00]/25 to-transparent blur-[200px] rounded-full"></div>
+      <div className="relative z-10 p-6 max-w-7xl mx-auto">
        {/* Centered Navbar */}
               <section className="mb-6">
                 <div className="flex justify-center">
@@ -88,7 +92,7 @@ const Marketplace: React.FC = () => {
         <div className="overflow-x-auto py-3">
           <div className="flex gap-6 items-center px-2">
             {partners.map((p) => (
-              <div key={p} className="flex-shrink-0 w-48 h-20 bg-neutral-900 border border-neutral-800 rounded flex items-center justify-center text-sm text-neutral-300">
+              <div key={p} className="flex-shrink-0 w-48 h-20 bg-neutral border border-neutral-800 rounded flex items-center justify-center text-sm text-neutral-300">
                 {p}
               </div>
             ))}
@@ -103,7 +107,7 @@ const Marketplace: React.FC = () => {
             <button
               key={c}
               onClick={() => setFilter(c)}
-              className={`px-3 py-1 text-sm rounded ${filter === c ? 'bg-blue-600 text-white' : 'bg-neutral-900 text-neutral-300 border border-neutral-800'}`}
+              className={`px-3 py-1 text-sm rounded ${filter === c ? 'bg-blue-600 text-white' : 'bg-neutral text-neutral-300 border border-neutral-800'}`}
             >
               {c}
             </button>
@@ -119,6 +123,7 @@ const Marketplace: React.FC = () => {
       </section>
 
       {isRedeemOpen && <RedeemModal onClose={() => setIsRedeemOpen(false)} tokenBalance={75} />}
+    </div>
     </div>
   );
 };
