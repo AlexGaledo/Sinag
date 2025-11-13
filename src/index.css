@@ -13,6 +13,7 @@ All colors MUST be HSL.
     background-color: #0F0F0F;
     color: #FFFFFF;
     background: radial-gradient(86.02% 172.05% at 50% -40%, #FDA205 0%, rgba(5, 5, 5, 0) 68%);
+  }
   :root {
     line-height: 1.5;
     font-weight: 400;
@@ -98,10 +99,5 @@ All colors MUST be HSL.
 @layer base {
   * {
     border-color: hsl(var(--border));
-  }
-
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
   }
 }
