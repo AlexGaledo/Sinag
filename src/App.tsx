@@ -2,26 +2,15 @@ import { ConnectButton } from "thirdweb/react";
 import thirdwebIcon from "./thirdweb.svg";
 import { client } from "./client";
 import HomeDashboard from "./pages/HomeDashboard";
+import { Route, Routes } from "react-router-dom";
 
 export function App() {
 	return (
-		<main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
-			<div className="py-20">
-				<Header />
-
-				<div className="flex justify-center mb-20">
-					<ConnectButton
-						client={client}
-						appMetadata={{
-							name: "Example app",
-							url: "https://example.com",
-						}}
-					/>
-				</div>
-
-				<HomeDashboard />
-			</div>
-		</main>
+		<>
+		<Routes>
+			<Route path="/dashboard" element={<HomeDashboard/>}/>
+		</Routes>
+		</>
 	);
 }
 
