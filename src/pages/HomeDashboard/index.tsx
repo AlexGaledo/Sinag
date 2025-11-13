@@ -1,10 +1,62 @@
 import React from 'react';
+import { Header, QuickSummary } from '../../components';
+import ConsumptionChart from '../../components/Charts/ConsumptionChart';
+import GeminiChat from '../../components/GeminiChat/GeminiChat';
+import Achievements from '../../components/Achievements/Achievements';
 
 const HomeDashboard: React.FC = () => {
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold">Home Dashboard</h1>
-      <p className="mt-2 text-sm text-neutral-400">Snapshot of energy behavior, token earnings, and progress toward sustainability goals.</p>
+    <div className="p-6 max-w-7xl mx-auto">
+      {/* Header / Hero */}
+      <section className="mb-8">
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-semibold">Good evening, Kien! 🌙</h1>
+            <p className="mt-2 text-sm text-neutral-400">Here’s your energy performance this month.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick summary cards */}
+      <section className="mb-8">
+        <QuickSummary />
+      </section>
+
+      {/* Middle: Charts & Insights */}
+      <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <div className="lg:col-span-2">
+          <div className="p-4 bg-neutral-900 rounded">
+            <h2 className="text-lg font-semibold mb-3">Consumption Trend</h2>
+            <ConsumptionChart />
+          </div>
+        </div>
+
+        <aside className="space-y-4">
+          <div className="p-4 bg-neutral-900 rounded">
+            <h3 className="font-semibold">Carbon Impact</h3>
+            <p className="mt-2 text-sm text-neutral-400">Your savings = <strong>14.5 kg CO₂</strong> avoided — planting <strong>2 trees</strong> 🌱</p>
+          </div>
+
+          <div className="p-4 bg-neutral-900 rounded">
+            <h3 className="font-semibold">Quick Insight</h3>
+            <p className="mt-2 text-sm text-neutral-400">You reduced usage by <strong>8%</strong> vs last month. Keep it up!</p>
+          </div>
+        </aside>
+      </section>
+
+      {/* Bottom: AI Insights + Achievements */}
+      <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2">
+          <div className="p-4 bg-neutral-900 rounded">
+            <h2 className="text-lg font-semibold mb-3">AI Insights</h2>
+            <GeminiChat />
+          </div>
+        </div>
+
+        <div>
+          <Achievements />
+        </div>
+      </section>
     </div>
   );
 };
