@@ -72,10 +72,15 @@ const Hero = () => {
       <section className="relative min-h-screen sm:min-h-[80vh] flex items-center justify-center overflow-hidden z-10 pt-10 sm:pt-24 pb-12 sm:pb-0">
         <div className="container mx-auto px-4 sm:px-6 text-center">
           {/* Glassmorphic Badge */}
-          <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full backdrop-blur-md bg-glass-bg/5 border border-glass-border/5 mb-6 sm:mb-8 tracking-tight">
-            <Sparkles className="w-3 sm:w-4 h-3 sm:h-4 text-[#FDA205]" />
-            <span className="text-xs sm:text-sm text-[#B4AFA8] font-secondary">Light Up With Sinag</span>
-          </div>
+        <div
+          className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full backdrop-blur-md bg-glass-bg/5 border border-glass-border/5 mb-6 sm:mb-8 tracking-tight"
+          style={{
+            boxShadow: "inset 0 2px 12px rgba(255, 255, 255, 0.04)"
+          }}
+        >
+          <Sparkles className="w-3 sm:w-4 h-3 sm:h-4 text-[#FDA205]" />
+          <span className="text-xs sm:text-sm text-[#B4AFA8] font-secondary">Light Up With Sinag</span>
+        </div>
 
           {/* Heading */}
           <h1
