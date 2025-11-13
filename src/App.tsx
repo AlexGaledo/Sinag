@@ -1,10 +1,8 @@
 
 import HomeDashboard from "./pages/HomeDashboard";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { BillTracker, Wallet, Chatbot, Marketplace, Community, Settings } from "./pages";
+import { BillTracker, Wallet, Chatbot, Marketplace, Community, Settings, LandingPage } from "./pages";
 import { Header } from "./components";
-
-
 export function App() {
 	return (
 		<>
