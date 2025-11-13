@@ -8,8 +8,12 @@ import '../../components/ui/glass-box.css';
 import { Button } from "@/components/ui/button";
 import Footer from '../../components/Footer';
 import { useEffect } from 'react';
+import { sinagContext } from '../../context/sinagContext';
+
+
 
 const HomeDashboard: React.FC = () => {
+  const { EnvironmentalImpact, toOffset } = React.useContext(sinagContext);
   const valueStyle: React.CSSProperties = {
     fontFamily: "'Space Grotesk', sans-serif",
     fontWeight: 1000, // Slightly bolder for values
@@ -71,7 +75,7 @@ const HomeDashboard: React.FC = () => {
           <div className="glass-box rounded-lg p-6">
             <h3 className="font-semibold">Carbon Impact</h3>
             <p className="mt-2 text-sm text-neutral-400">
-              Your savings = <strong>14.5 kg CO₂</strong> avoided — planting <strong>2 trees</strong> 🌱
+              Your savings = <strong>{EnvironmentalImpact} kg CO₂</strong> avoided — planting <strong>{toOffset} trees</strong> 🌱
             </p>
           </div>
 

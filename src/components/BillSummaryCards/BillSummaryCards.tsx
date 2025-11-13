@@ -3,7 +3,7 @@ import { sinagContext } from '@/context/sinagContext';
 
 interface HistoryEntry {
   month?: string;
-  kWh_consumed?: number;
+  kwh?: number;
   energy_saved?: number;
   tokensEarned?: number;
 }
@@ -26,7 +26,7 @@ const BillSummaryCards: React.FC = () => {
             history.map((entry: HistoryEntry, index: number) => (
               <tr key={index} className="border-b border-neutral-900 hover:bg-neutral-900/50 transition">
                 <td className="py-3 px-4 text-neutral-200 font-bold text-[20px]">{entry.month || 'N/A'}</td>
-                <td className="py-3 px-4 text-right text-neutral-200 font-bold text-[20px]">{entry.kWh_consumed || 0} kWh</td>
+                <td className="py-3 px-4 text-right text-neutral-200 font-bold text-[20px]">{entry.kwh || 0} kWh</td>
                 <td className="py-3 px-4 text-right text-neutral-200 font-bold text-[20px]">{entry.tokensEarned || 0} $SIN</td>
               </tr>
             ))

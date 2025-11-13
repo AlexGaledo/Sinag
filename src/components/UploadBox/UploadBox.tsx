@@ -31,7 +31,9 @@ const UploadBox: React.FC<UploadBoxProps> = ({ onFileSelect }) => {
     update_energySaved, 
     update_rate, 
     update_sinagTokens,
-    update_History 
+    update_History,
+    update_environmentalImpact,
+    update_toOffset
   } = React.useContext(sinagContext);
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -106,6 +108,12 @@ const UploadBox: React.FC<UploadBoxProps> = ({ onFileSelect }) => {
           
           update_sinagTokens(data.sinagTokens || 0);
           console.log('SINAG Tokens:', data.sinagTokens);
+
+          update_environmentalImpact(data.Environmental_Impact || 0);
+          console.log('Environmental Impact:', data.Environmental_Impact);
+
+          update_toOffset(data.To_Offset_Emissions || 0);
+          console.log('To Offset:', data.To_Offset_Emissions);
           
           // Map history with correct field names
           const mappedHistory = (data.history || []).map((entry: any) => ({
