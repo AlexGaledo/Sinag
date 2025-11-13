@@ -12,8 +12,8 @@ const RewardsGrid: React.FC<{ rewards: Reward[]; onRedeem?: (id: string) => void
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {rewards.map((r) => (
-        <div key={r.id} className="p-4 bg-neutral-900 rounded border border-neutral-800 flex flex-col">
-          <div className="h-40 bg-neutral-800 rounded mb-4 flex items-center justify-center text-neutral-500">{r.image ? <img src={r.image} alt={r.title} /> : <div className="text-2xl">🎁</div>}</div>
+        <div key={r.id} className="p-4 bg-neutral rounded border border-neutral-800 flex flex-col">
+          <div className="h-40 bg-neutral-900 rounded mb-4 flex items-center justify-center text-neutral-500">{r.image ? <img src={r.image} alt={r.title} /> : <div className="text-2xl">🎁</div>}</div>
           <h3 className="font-semibold text-sm text-neutral-200">{r.title}</h3>
           <div className="text-xs text-neutral-400 mb-3">{r.category}</div>
           <div className="mt-auto flex items-center justify-between">

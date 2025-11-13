@@ -25,7 +25,7 @@ const Leaderboard: React.FC<{ rows?: LeaderboardRow[]; currentUser?: string }> =
   const data = sample;
 
   return (
-    <div className="bg-neutral-900 rounded border border-neutral-800 overflow-hidden">
+    <div className="bg-neutral rounded border border-neutral-800 overflow-hidden">
       <div className="p-4 border-b border-neutral-800">
         <h3 className="font-semibold">Leaderboard</h3>
         <p className="text-sm text-neutral-400">Top users by tokens and kWh saved</p>
