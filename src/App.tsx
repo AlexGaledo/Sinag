@@ -3,13 +3,11 @@ import HomeDashboard from "./pages/HomeDashboard";
 import { Route, Routes } from "react-router-dom";
 import { BillTracker, Wallet } from "./pages";
 import { Chatbot }	from "./pages";
-<<<<<<< HEAD
 import { Marketplace } from "./pages";
 import { Community } from "./pages";
-=======
 import { Header } from "./components";
+import { Settings } from "./pages";
 
->>>>>>> e2afde9ba4aad00da473700cb8bb7ba65c69a60e
 
 export function App() {
 	return (
@@ -22,6 +20,7 @@ export function App() {
 			<Route path="/wallet" element={<Wallet/>}/>
 			<Route path="/marketplace" element={<Marketplace/>}/>
 			<Route path="/community" element={<Community/>}/>
+			<Route path="/settings" element={<Settings/>}/>
 
 		</Routes>
 		</>
