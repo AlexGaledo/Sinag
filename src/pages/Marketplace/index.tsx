@@ -13,6 +13,10 @@ const Marketplace: React.FC = () => {
   const [activeNav, setActiveNav] = useState<string>('Dashboard');
     const navigate = useNavigate();
     const location = useLocation();
+
+  useEffect(() => {
+    document.title = "Rewards | Sinag";
+  }, []);
   
   const rewards = useMemo(
     () => [
