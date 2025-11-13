@@ -34,66 +34,63 @@ const Hero = () => {
   const isConnected = address && isAddress(address);
 
   return (
-    <div className="relative bg-gradient-to-br from-sinag-dark via-sinag-dark">
+    <div className="relative bg-gradient-to-br from-sinag-dark via-sinag-dark w-screen overflow-x-hidden">
       {/* Shared Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Glassmorphic vertical rectangles */}
-      {[0, 1, 2, 3].map((i) => (
-        <div
-          key={i}
-          className="absolute rounded-xl bg-glass-bg/4 border border-glass-border/5 backdrop-blur-3xl"
-          style={{
-            width: "336px",
-            height: "900px",
-            top: 0, 
-            left: `${i * 25}%`,
-            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
-            maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
-            WebkitMaskRepeat: "no-repeat",
-            maskRepeat: "no-repeat",
-            WebkitMaskSize: "100% 100%",
-            maskSize: "100% 100%",
-          }}
-        />
-      ))}
+      <div className="absolute inset-0 z-0 overflow-hidden w-full h-full">
+        {/* Glassmorphic vertical rectangles - Clipped to viewport */}
+        {[0, 1, 2, 3].map((i) => (
+          <div
+            key={i}
+            className="absolute rounded-xl bg-glass-bg/4 border border-glass-border/5 backdrop-blur-3xl"
+            style={{
+              width: "20vw",
+              height: "900px",
+              maxWidth: "280px",
+              top: 0, 
+              left: `${i * 25}%`,
+              WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
+              maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskSize: "100% 100%",
+              maskSize: "100% 100%",
+            }}
+          />
+        ))}
 
-      <LightRays
-        raysOrigin="top-center"
-        raysColor="#FDA205"
-        raysSpeed={1.5}
-        lightSpread={1.3}
-        rayLength={0.7}
-        followMouse={true}
-        mouseInfluence={0.1}
-        noiseAmount={0.1}
-        distortion={0.05}
-        className="custom-rays absolute inset-0 z-10"
-      /> 
-
-        {/* Radial Gradient Circle at top */}
-        {/* <div
-          className="absolute -top-[360px] left-1/2 -translate-x-1/2 w-[1440px] h-[720px] rounded-full blur-3xl opacity-40"
-          style={{ background: "radial-gradient(circle, #FDA205 0%, transparent 60%)" }}
-        /> */}
+        <div className="absolute inset-0 overflow-hidden w-full h-full">
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#FDA205"
+            raysSpeed={1.5}
+            lightSpread={1.3}
+            rayLength={0.7}
+            followMouse={true}
+            mouseInfluence={0.1}
+            noiseAmount={0.1}
+            distortion={0.05}
+            className="custom-rays absolute inset-0 z-10 w-full h-full"
+          /> 
+        </div>
       </div>
 
       {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen sm:min-h-[80vh] flex items-center justify-center overflow-hidden z-10 pt-10 sm:pt-24 pb-12 sm:pb-0">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
+      <section id="hero" className="relative min-h-screen sm:min-h-[80vh] flex items-center justify-center z-10 pt-10 sm:pt-24 pb-12 sm:pb-0 w-full overflow-hidden">
+        <div className="w-full px-4 sm:px-6 text-center max-w-4xl mx-auto">
           {/* Glassmorphic Badge */}
-        <div
-          className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full backdrop-blur-md bg-glass-bg/5 border border-glass-border/5 mb-6 sm:mb-8 tracking-tight"
-          style={{
-            boxShadow: "inset 0 2px 12px rgba(255, 255, 255, 0.04)"
-          }}
-        >
-          <Sparkles className="w-3 sm:w-4 h-3 sm:h-4 text-[#FDA205]" />
-          <span className="text-xs sm:text-sm text-[#B4AFA8] font-secondary">Light Up With Sinag</span>
-        </div>
+          <div
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full backdrop-blur-md bg-glass-bg/5 border border-glass-border/5 mb-6 sm:mb-8 tracking-tight"
+            style={{
+              boxShadow: "inset 0 2px 12px rgba(255, 255, 255, 0.04)"
+            }}
+          >
+            <Sparkles className="w-3 sm:w-4 h-3 sm:h-4 text-[#FDA205]" />
+            <span className="text-xs sm:text-sm text-[#B4AFA8] font-secondary">Light Up With Sinag</span>
+          </div>
 
           {/* Heading */}
           <h1
-            className="text-5xl sm:text-7xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent leading-tight tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent leading-tight tracking-tight"
             style={{
               backgroundImage: "linear-gradient(to bottom, #B4AFA8 0%, #E5E5E5 56%, #E5E5E5 75%, #FFFFFF 100%)",
             }}
@@ -103,7 +100,7 @@ const Hero = () => {
           </h1>
 
           {/* Description */}
-          <p className="font-secondary text-sm sm:text-base md:text-lg text-sinag-text-muted/70 mb-8 sm:mb-10 max-w-2xl sm:max-w-4xl mx-auto tracking-tight px-2 sm:px-0">
+          <p className="font-secondary text-sm sm:text-base md:text-lg text-sinag-text-muted/70 mb-8 sm:mb-10 tracking-tight">
             Sinag helps you track your Meralco consumption, save electricity, and earn eco-rewards.
           </p>
 
@@ -135,38 +132,34 @@ const Hero = () => {
       </section>
 
       {/* Features Section */}
-    <section id="features" className="relative py-8 sm:py-16 lg:py-24 px-4 sm:px-6 z-10">
-      {/* Right-side Light Rays */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 z-0 pointer-events-none h-full">
-      </div>
+      <section id="features" className="relative py-8 sm:py-16 lg:py-24 px-4 sm:px-6 z-10 w-full overflow-hidden">
+        <div className="w-full max-w-7xl mx-auto relative z-10">
+          <h2 className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 bg-gradient-to-t from-sinag-text via-sinag-text/70 to-sinag-text/80 bg-clip-text text-transparent leading-tight">
+            Light up your world with<br className="hidden sm:inline" />
+            <span className="block sm:inline"> Sinag's core features</span>
+          </h2>
 
-      <div className="container mx-auto relative z-10">
-        <h2 className="text-4xl sm:text-6xl md:text-5xl lg:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 bg-gradient-to-t from-sinag-text via-sinag-text/70 to-sinag-text/80 bg-clip-text text-transparent leading-tight">
-          Light up your world with<br className="hidden sm:inline" />
-          <span className="block sm:inline"> Sinag's core features</span>
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group relative h-auto sm:h-72 rounded-2xl backdrop-blur-md bg-glass-bg/4 border border-glass-border/5 p-6 sm:p-8 hover:bg-glass-bg/5 transition-all duration-300"
-            >
-              <div className="mb-4 sm:mb-6">
-                <div className="inline-flex p-2 sm:p-3 rounded-lg">
-                  <feature.icon className="w-5 sm:w-6 h-5 sm:h-6 text-sinag-orange-start" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="group relative h-auto rounded-2xl backdrop-blur-md bg-glass-bg/4 border border-glass-border/5 p-6 hover:bg-glass-bg/5 transition-all duration-300 overflow-hidden"
+              >
+                <div className="mb-4">
+                  <div className="inline-flex p-2 rounded-lg">
+                    <feature.icon className="w-6 h-6 text-sinag-orange-start" />
+                  </div>
                 </div>
+                <h3 className="text-base sm:text-lg font-bold text-sinag-text mb-3 text-left line-clamp-2">{feature.title}</h3>
+                <p className="text-sm font-secondary text-sinag-text-muted/60 mb-3 text-left line-clamp-3">{feature.description}</p>
+                <p className="text-sm font-secondary text-sinag-text-muted/80 text-left">{feature.detail}</p>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-sinag-text mb-3 sm:mb-4 text-left">{feature.title}</h3>
-              <p className="text-xs sm:text-sm font-secondary text-sinag-text-muted/60 mb-4 sm:mb-6 text-left line-clamp-3 sm:line-clamp-none">{feature.description}</p>
-              <p className="text-xs sm:text-sm font-secondary text-sinag-text-muted/80 text-left">{feature.detail}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <Footer />
+      <Footer />
     </div>
   );
 };
