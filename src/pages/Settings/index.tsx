@@ -24,66 +24,7 @@ const Settings: React.FC = () => {
   const sampleAddress = '0x742d35Cc6634C0532925a3b844Bc9e7595f42e0';
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-       {/* Centered Navbar */}
-              <section className="mb-6">
-                <div className="flex justify-center">
-                  <nav aria-label="Main navigation">
-                    <ul className="flex gap-4 items-center">
-                      {['Dashboard', 'Community', 'Bill Tracker', 'Marketplace', 'Wallet', 'Settings'].map((item) => (
-                        <li key={item}>
-                          <button
-                            onClick={() => {
-                              setActiveNav(item);
-                              switch (item) {
-                                case 'Community':
-                                  navigate('/community');
-                                  break;
-                                case 'Bill Tracker':
-                                  navigate('/billtracker');
-                                  break;
-                                case 'Marketplace':
-                                  navigate('/marketplace');
-                                  break;
-                                case 'Wallet':
-                                  navigate('/wallet');
-                                  break;
-                                case 'Settings':
-                                  navigate('/settings');
-                                  break;
-                                default:
-                                  navigate('/dashboard');
-                              }
-                            }}
-                            className="flex items-center justify-center text-center"
-                            style={{
-                              fontFamily: 'Inter, sans-serif',
-                              fontWeight: 400,
-                              fontStyle: 'normal',
-                              fontSize: '14px',
-                              lineHeight: '25.2px',
-                              letterSpacing: '-0.28px',
-                              color: '#FFFFFF',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              height: activeNav === item ? '43.19px' : 'auto',
-                              width: activeNav === item ? '72.09px' : 'auto',
-                              borderRadius: activeNav === item ? '99px' : undefined,
-                              background: activeNav === item ? 'rgba(255,255,255,0.03)' : 'transparent',
-                              border: activeNav === item ? '1px solid rgba(255,255,255,0.1)' : 'none',
-                              padding: '8px 12px'
-                            }}
-                          >
-                            {item}
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-                </div>
-              </section>
-      
+    <div className="max-w-4xl mx-auto">
       <section className="mb-6">
         <h1 className="text-3xl font-semibold mb-2">Settings & Profile</h1>
         <p className="text-sm text-neutral-400">Manage personal info, preferences, and connected wallets.</p>

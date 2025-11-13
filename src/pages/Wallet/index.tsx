@@ -10,41 +10,7 @@ const Wallet: React.FC = () => {
   const blockchainAddress = '0x742d35Cc6634C0532925a3b844Bc9e7595f42e0';
     
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      {/* Centered Navbar */}
-              <section className="mb-6">
-                <div className="flex justify-center">
-                  <nav aria-label="Main navigation">
-                    <ul className="flex gap-4 items-center">
-                      {[
-                        { label: 'Dashboard', to: '/dashboard' },
-                        { label: 'Community', to: '/community' },
-                        { label: 'Bill Tracker', to: '/billtracker' },
-                        { label: 'Marketplace', to: '/marketplace' },
-                        { label: 'Wallet', to: '/wallet' },
-                        { label: 'Settings', to: '/settings' },
-                      ].map((nav) => (
-                        <li key={nav.label}>
-                          <NavLink
-                            to={nav.to}
-                            end={nav.to === '/dashboard'}
-                            className={({ isActive }) =>
-                              `inline-flex items-center justify-center py-2 rounded-full text-[14px] leading-[25.2px] tracking-[-0.28px] font-normal ${
-                                isActive
-                                  ? 'bg-white/5 border border-white/10 text-white px-4'
-                                  : 'text-white px-3'
-                              }`
-                            }
-                          >
-                            {nav.label}
-                          </NavLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-                </div>
-              </section>
-      
+    <div className="max-w-7xl mx-auto">  
       {/* Header */}
       <section className="mb-8">
         <h1 className="text-3xl font-semibold mb-2">Token Wallet</h1>
