@@ -32,7 +32,7 @@ export default function Header() {
               { label: "Dashboard", to: "/dashboard" },
               { label: "Community", to: "/community" },
               { label: "Bill Tracker", to: "/billtracker" },
-              { label: "Marketplace", to: "/marketplace" },
+              { label: "Rewards", to: "/marketplace" },
             ].map((nav) => (
               <li key={nav.label} className="whitespace-nowrap">
                 <NavLink
