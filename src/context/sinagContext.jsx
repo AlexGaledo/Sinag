@@ -10,7 +10,7 @@ export { sinagContext };
 export default function SinagContext({children}) {
 
     const [address, setAddress] = useState("");
-    const [base, setBaseline] = useState(0);
+    const [Baseline, setBaseline] = useState(0);
     const [currentUsage, setCurrentUsage] = useState(0);
     const [energySaved, setEnergySaved] = useState(0);
     const [sinagTokens, setSinagTokens] = useState(0);
@@ -54,7 +54,7 @@ export default function SinagContext({children}) {
 
 
     return(
-        <sinagContext.Provider value={{address, base, currentUsage, energySaved, sinagTokens, rate, history,
+        <sinagContext.Provider value={{address, Baseline, currentUsage, energySaved, sinagTokens, rate, history,
         update_address, update_Baseline, update_currentUsage, update_energySaved, update_sinagTokens, update_rate, 
         update_History, add_HistoryEntry}}>
             {children}
