@@ -1,15 +1,15 @@
-import { ConnectButton } from "thirdweb/react";
-import thirdwebIcon from "./thirdweb.svg";
-import { client } from "./client";
+
 import HomeDashboard from "./pages/HomeDashboard";
 import { Route, Routes } from "react-router-dom";
 import { BillTracker, Wallet } from "./pages";
 import { Chatbot }	from "./pages";
+import { Header } from "./components";
 
 
 export function App() {
 	return (
 		<>
+		<Header/>
 		<Routes>
 			<Route path="/dashboard" element={<HomeDashboard/>}/>
 			<Route path="/billtracker" element={<BillTracker/>}/>
