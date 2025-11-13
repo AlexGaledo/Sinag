@@ -1,4 +1,5 @@
 import React from 'react';
+import { Crown } from 'lucide-react';
 
 export type LeaderboardRow = {
   rank: number;
@@ -27,7 +28,10 @@ const Leaderboard: React.FC<{ rows?: LeaderboardRow[]; currentUser?: string }> =
   return (
     <div className="bg-neutral rounded border border-neutral-800 overflow-hidden">
       <div className="p-4 border-b border-neutral-800">
-        <h3 className="font-semibold">Leaderboard</h3>
+        <div className="flex items-center gap-2.5 mb-5">
+          <Crown className="w-5 sm:w-6 h-5 sm:h-6 text-sinag-orange-start" />
+          <h3 className="font-semibold">Leaderboard</h3>
+        </div>
         <p className="text-sm text-neutral-400">Top users by tokens and kWh saved</p>
       </div>
 
