@@ -55,7 +55,7 @@ const QuickSummary: React.FC = () => {
       {/* Sinag Tokens */}
       <div className={`${summaryBoxClasses} border-r border-white/20`}>
         <span style={labelStyle}>Sinag Tokens</span>
-        <strong style={sinagTokenValueStyle}>{sinagTokens || 0} Tokens</strong>
+        <strong style={sinagTokenValueStyle}>{sinagTokens || 0} SIN</strong>
       </div>
     </div>
   );
