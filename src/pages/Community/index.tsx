@@ -1,13 +1,64 @@
 import React from 'react';
 import Leaderboard from '../../components/Leaderboard/Leaderboard';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Community: React.FC = () => {
   const totalCO2 = 2350; // kg
   const totalTokens = 12340;
   const userCityRank = 12; // sample
-
+  const [activeNav, setActiveNav] = useState<string>('Dashboard');
+      const navigate = useNavigate();
+      const location = useLocation();
+    
+   useEffect(() => {
+        const path = location.pathname.toLowerCase();
+        if (path.includes('/community')) setActiveNav('Community');
+        else if (path.includes('/billtracker')) setActiveNav('Bill Tracker');
+        else if (path.includes('/marketplace')) setActiveNav('Marketplace');
+        else if (path.includes('/wallet')) setActiveNav('Wallet');
+        else if (path.includes('/settings')) setActiveNav('Settings');
+        else setActiveNav('Community');
+      }, [location.pathname]);
+   
   return (
     <div className="p-6 max-w-7xl mx-auto">
+      {/* Centered Navbar */}
+              <section className="mb-6">
+                <div className="flex justify-center">
+                  <nav aria-label="Main navigation">
+                    <ul className="flex gap-4 items-center">
+                      {[
+                                              { label: 'Dashboard', to: '/dashboard' },
+                                              { label: 'Community', to: '/community' },
+                                              { label: 'Bill Tracker', to: '/billtracker' },
+                                              { label: 'Marketplace', to: '/marketplace' },
+                                              { label: 'Wallet', to: '/wallet' },
+                                              { label: 'Settings', to: '/settings' },
+                                            ].map((nav) => (
+                                              <li key={nav.label}>
+                                                <NavLink
+                                                  to={nav.to}
+                                                  end={nav.to === '/dashboard'}
+                                                  className={({ isActive }) =>
+                                                    `inline-flex items-center justify-center py-2 rounded-full text-[14px] leading-[25.2px] tracking-[-0.28px] font-normal ${
+                                                      isActive
+                                                        ? 'bg-white/5 border border-white/10 text-white px-4'
+                                                        : 'text-white px-3'
+                                                    }`
+                                                  }
+                                                >
+                                                  {nav.label}
+                                                </NavLink>
+                                              </li>
+                                            ))}
+                      </ul>
+                  </nav>
+                </div>
+              </section>
+      
       <section className="mb-6">
         <h1 className="text-3xl font-semibold mb-2">Community Impact</h1>
         <p className="text-sm text-neutral-400">Encourage friendly competition and collective environmental impact across regions.</p>
