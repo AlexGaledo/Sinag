@@ -1,6 +1,8 @@
 import React from 'react';
+import { sinagContext } from '@/context/sinagContext';
 
 const QuickSummary: React.FC = () => {
+  const { currentUsage, energySaved, sinagTokens, Baseline } = React.useContext(sinagContext);
   const labelStyle: React.CSSProperties = {
     fontFamily: "'Space Grotesk', sans-serif",
     fontWeight: 100, // Light weight for labels
@@ -43,17 +45,26 @@ const QuickSummary: React.FC = () => {
       {/* Current Usage */}
       <div className={`${summaryBoxClasses} border-r border-white/20`}>
         <span style={labelStyle}>Current Usage</span>
-        <strong style={valueStyle}>345 kWh</strong>
+        <strong style={valueStyle}>{currentUsage || 0} kWh</strong>
       </div>
       {/* Energy Saved */}
       <div className={`${summaryBoxClasses} border-r border-white/20`}>
         <span style={labelStyle}>Energy Saved</span>
-        <strong style={valueStyle}>29 kWh</strong>
+        <strong style={valueStyle}>{energySaved || 0} kWh</strong>
       </div>
       {/* Sinag Tokens */}
       <div className={`${summaryBoxClasses} border-r border-white/20`}>
         <span style={labelStyle}>Sinag Tokens</span>
+<<<<<<< HEAD
         <strong style={sinagTokenValueStyle}>29 SIN</strong>
+=======
+        <strong style={valueStyle}>{sinagTokens || 0} SIN</strong>
+      </div>
+      {/* Bill Estimate */}
+      <div className={summaryBoxClasses}>
+        <span style={labelStyle}>Baseline</span>
+        <strong style={valueStyle}>{Baseline || 0} kWh</strong>
+>>>>>>> 728c5b83169b95659a87164d2cb638f900b4d8e7
       </div>
       
     </div>
