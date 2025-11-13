@@ -77,13 +77,14 @@ export default function Header() {
           >
             <FiSettings size={18} />
           </NavLink>
-          
+
+        <div className="inline-flex items-center justify-center rounded-[50px] bg-white/5 backdrop-blur-xl border border-white/10 shadow-[inset_0_2px_12px_rgba(255,255,255,0.04)] p-0.5">
           <ConnectButton
             client={client}
             theme={darkTheme({
               colors: {
                 primaryButtonText: "hsl(0, 100%, 99%)",
-                primaryButtonBg: "hsl(0, 0%, 11%)",
+                primaryButtonBg: "hsla(0, 0%, 0%, 0.00)",
                 secondaryButtonHoverBg: "hsl(228, 2%, 28%)",
               },
             })}
@@ -91,6 +92,7 @@ export default function Header() {
             label: "Connect Wallet",
             }}
            />
+           </div>
         </div>  
       </div>
     </header>
