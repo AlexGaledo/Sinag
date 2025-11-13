@@ -4,7 +4,7 @@ import sinag from "../sinag.svg";
 
 const Footer = () => {
   return (
-    <footer className="relative py-12 sm:py-16 px-4 sm:px-6 border-t border-glass-border/10 z-10">
+    <footer id="footer" className="relative py-12 sm:py-16 px-4 sm:px-6 border-t border-glass-border/10 z-10">
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 sm:mb-12 gap-8">
           {/* Left: Logo and Tagline */}

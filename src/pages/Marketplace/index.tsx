@@ -37,7 +37,7 @@ const Marketplace: React.FC = () => {
     return rewards.filter((r) => r.category === filter);
   }, [filter, rewards]);
 
-  const partners = ['Meralco', 'SM Appliance', 'Lazada', 'Shopee', 'Globe'];
+  const partners = ['Meralco', 'PE2', 'IBPAP', 'PGBC', 'PISI', 'SEIPI'];
   useEffect(() => {
       const path = location.pathname.toLowerCase();
       if (path.includes('/community')) setActiveNav('Community');
@@ -70,9 +70,9 @@ const Marketplace: React.FC = () => {
       {/* Partner carousel */}
       <section className="mb-6">
         <div className="overflow-x-auto py-3">
-          <div className="flex gap-6 items-center px-2">
+          <div className="flex gap-4 sm:gap-6 items-center px-2">
             {partners.map((p) => (
-              <div key={p} className="flex-shrink-0 w-48 h-20 rounded flex items-center justify-center text-sm text-neutral-300" 
+              <div key={p} className="flex-shrink-0 w-40 sm:w-48 h-20 rounded flex items-center justify-center" 
                 style={{
                   background: "rgba(255, 255, 255, 0.05)",
                   backdropFilter: "blur(12px)",
@@ -80,7 +80,11 @@ const Marketplace: React.FC = () => {
                   boxShadow: "inset 0 2px 12px rgba(255, 255, 255, 0.04)"
                 }}
               >
-                {p}
+                <img 
+                  src={`/${p.toUpperCase()}.png`} 
+                  alt={p}
+                  className="w-[90%] h-[90%] object-contain"
+                />
               </div>
             ))}
           </div>

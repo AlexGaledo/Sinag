@@ -78,7 +78,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen sm:min-h-[80vh] flex items-center justify-center overflow-hidden z-10 pt-10 sm:pt-24 pb-12 sm:pb-0">
+      <section id="hero" className="relative min-h-screen sm:min-h-[80vh] flex items-center justify-center overflow-hidden z-10 pt-10 sm:pt-24 pb-12 sm:pb-0">
         <div className="container mx-auto px-4 sm:px-6 text-center">
           {/* Glassmorphic Badge */}
         <div
@@ -135,7 +135,7 @@ const Hero = () => {
       </section>
 
       {/* Features Section */}
-    <section className="relative py-8 sm:py-16 lg:py-24 px-4 sm:px-6 z-10">
+    <section id="features" className="relative py-8 sm:py-16 lg:py-24 px-4 sm:px-6 z-10">
       {/* Right-side Light Rays */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 z-0 pointer-events-none h-full">
       </div>

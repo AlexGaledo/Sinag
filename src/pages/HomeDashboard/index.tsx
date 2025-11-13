@@ -44,7 +44,7 @@ const HomeDashboard: React.FC = () => {
     {/* Left side: Greeting + subtext */}
     
     <div className="flex flex-col items-start">
-      <h1 style={valueStyle}>Welcome Back, Kien!</h1>
+      <h1 style={valueStyle}>Welcome Back!</h1>
       <p className="mt-2 text-sm text-neutral-400">
         Here’s your energy performance this month.
       </p>
