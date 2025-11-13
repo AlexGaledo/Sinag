@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
-import { base } from 'thirdweb/chains';
 import { sinagContext } from '@/context/sinagContext';
+import { createThirdwebClient, getContract } from "thirdweb";
+import { defineChain } from "thirdweb/chains";
+import { client } from '@/client';
+import { mintTo } from 'thirdweb/extensions/erc20';
+import { useActiveWallet, useSendTransaction } from 'thirdweb/react';
 
 interface UploadBoxProps {
   onFileSelect?: (file: File) => void;
 }
 
 const UploadBox: React.FC<UploadBoxProps> = ({ onFileSelect }) => {
+
+  const contract = getContract({
+  client,
+  chain: defineChain(11155111),
+  address: "0x8cFeCD58d76074a81e679108129832F0Fd50238C",
+  });
+
+  const wallet = useActiveWallet();
+  const { mutate: sendTransaction } = useSendTransaction();
+
   const [isDragging, setIsDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const baseUrl = import.meta.env.VITE_BACKEND_URL ; // Example base URL
@@ -89,6 +103,40 @@ const UploadBox: React.FC<UploadBoxProps> = ({ onFileSelect }) => {
           update_sinagTokens(data.Token_reward || 0);
           console.log(data.Token_reward);
 
+          // Request backend to mint SINAG tokens to user's wallet
+          if (data.Token_reward && data.Token_reward > 0 && wallet) {
+            const userAddress = wallet.getAccount()?.address;
+            
+            if (userAddress) {
+              try {
+                const mintResponse = await fetch(`${baseUrl}/mint-tokens`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    address: userAddress,
+                    amount: data.Token_reward,
+                  }),
+                });
+
+                if (mintResponse.ok) {
+                  const mintData = await mintResponse.json();
+                  console.log('✅ Tokens minted successfully:', mintData);
+                  alert(`🎉 You've earned ${data.Token_reward} SINAG tokens!`);
+                } else {
+                  const errorText = await mintResponse.text();
+                  console.error('Error minting tokens:', errorText);
+                  alert(`Error receiving tokens: ${errorText}`);
+                }
+              } catch (mintError: any) {
+                console.error('Mint request failed:', mintError);
+                alert(`Failed to mint tokens: ${mintError.message}`);
+              }
+            } else {
+              alert('Please connect your wallet to receive tokens');
+            }
+          }
 
           // Update history if available
           if (data.history && Array.isArray(data.history)) {

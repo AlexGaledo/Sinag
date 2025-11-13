@@ -6,6 +6,8 @@ import { FiSettings, FiMenu, FiX } from "react-icons/fi";
 import { FaWallet } from "react-icons/fa";
 import sinag from "../../sinag.svg";
 import { motion, AnimatePresence } from "framer-motion";
+import { createThirdwebClient, getContract } from "thirdweb";
+import { defineChain } from "thirdweb/chains";
 
 export default function Header() {
   const wallet = useActiveWallet();
@@ -20,6 +22,7 @@ export default function Header() {
     { label: "Bill Tracker", to: "/billtracker" },
     { label: "Rewards", to: "/marketplace" },
   ];
+
 
   return (
     <>
