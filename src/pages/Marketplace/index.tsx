@@ -68,28 +68,48 @@ const Marketplace: React.FC = () => {
       </section>
 
       {/* Partner carousel */}
-      <section className="mb-6">
-        <div className="overflow-x-auto py-3">
-          <div className="flex gap-4 sm:gap-6 items-center px-2">
-            {partners.map((p) => (
-              <div key={p} className="flex-shrink-0 w-40 sm:w-48 h-20 rounded flex items-center justify-center" 
-                style={{
-                  background: "rgba(255, 255, 255, 0.05)",
-                  backdropFilter: "blur(12px)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  boxShadow: "inset 0 2px 12px rgba(255, 255, 255, 0.04)"
-                }}
-              >
-                <img 
-                  src={`/${p.toUpperCase()}.png`} 
-                  alt={p}
-                  className="w-[90%] h-[90%] object-contain"
-                />
-              </div>
-            ))}
-          </div>
+ <section className="mb-6">
+  <div className="overflow-x-auto py-3 scrollbar-hide">
+    <div className="flex gap-5 sm:gap-6 items-center px-2">
+      {partners.map((p) => (
+        <div
+          key={p}
+          className="
+            group
+            relative
+            flex-shrink-0 
+            w-36 sm:w-44 
+            h-20 sm:h-24 
+            rounded-xl
+            flex items-center justify-center
+            transition-all duration-300
+            hover:scale-[1.08] 
+            hover:shadow-[0_8px_28px_rgba(0,0,0,0.3)]
+            hover:border-white/20
+            bg-white/5 
+            backdrop-blur-xl 
+            border border-white/10
+            overflow-hidden
+            cursor-pointer
+          "
+        >
+          {/* Subtle top highlight */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-20 pointer-events-none" />
+
+          {/* Logo */}
+          <img
+            src={`/${p.toUpperCase()}.png`}
+            alt={p}
+            className="w-[70%] h-[70%] object-contain opacity-90 group-hover:opacity-100 transition"
+          />
+
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Filters */}
       <section className="mb-6 flex items-center justify-between">

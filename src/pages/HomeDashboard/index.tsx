@@ -5,7 +5,6 @@ import GeminiChat from '../../components/GeminiChat/GeminiChat';
 import Achievements from '../../components/Achievements/Achievements';
 import { Sparkles, FileText, PieChart, Crown, Users, Zap } from "lucide-react";
 import '../../components/ui/glass-box.css';
-import { Button } from "@/components/ui/button";
 import Footer from '../../components/Footer';
 import { useEffect } from 'react';
 import { sinagContext } from '../../context/sinagContext';
@@ -65,7 +64,7 @@ const HomeDashboard: React.FC = () => {
       {/* Middle: Charts & Insights */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         <div className="lg:col-span-2">
-          <div className="glass-box z-10 rounded-lg p-6">
+          <div className="glass-box rounded-lg p-6 relative z-20">
             <h2 className="text-lg font-semibold mb-3">Consumption Trend</h2>
             <ConsumptionChart />
           </div>
@@ -91,7 +90,7 @@ const HomeDashboard: React.FC = () => {
       {/* Bottom: AI Insights + Achievements */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
-          <div className="glass-box z-0 rounded-lg p-6">
+          <div className="glass-box rounded-lg p-6">
             <h2 className="text-lg font-semibold mb-3">AI Insights & Recommendation</h2>
             <GeminiChat />
           </div>
