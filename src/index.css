@@ -21,5 +21,6 @@
   body {
     background-color: #0F0F0F;
     color: #FFFFFF;
+    background: radial-gradient(86.02% 172.05% at 50% -40%, #FDA205 0%, rgba(5, 5, 5, 0) 68%);
   }
 }
