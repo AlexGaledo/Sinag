@@ -36,7 +36,11 @@ export default function Header() {
               className="w-7 h-7 object-contain"
             />
             <span className="text-xl font-semibold tracking-tight">Sinag</span>
+<<<<<<< HEAD
           </NavLink>
+=======
+          </div>
+>>>>>>> e76725c (CTA of Landing Page)
 
           {/* Center: Desktop Navbar */}
           <nav

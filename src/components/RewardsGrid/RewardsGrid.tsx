@@ -20,7 +20,7 @@ const RewardsGrid: React.FC<{ rewards: Reward[]; onRedeem?: (id: string) => void
             <div className="font-bold text-emerald-400">{r.cost} SIN</div>
             <button
               onClick={() => onRedeem?.(r.id)}
-              className="px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded text-white text-sm transition"
+              className="px-3 py-1 bg-[#FE9126] hover:bg-[#FE9126] rounded text-black text-sm transition"
             >
               Redeem
             </button>

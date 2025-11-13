@@ -4,6 +4,7 @@ import RedeemModal from '../../components/RedeemModal/RedeemModal';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Sparkles } from 'lucide-react';
 
 type Category = 'All' | 'Appliance' | 'Voucher' | 'Donation' | 'Partner';
 
@@ -35,7 +36,7 @@ const Marketplace: React.FC = () => {
     return rewards.filter((r) => r.category === filter);
   }, [filter, rewards]);
 
-  const partners = ['Meralco', 'SM Appliance', 'Anihan Foundation'];
+  const partners = ['Meralco', 'SM Appliance', 'Lazada', 'Shopee', 'Globe'];
   useEffect(() => {
       const path = location.pathname.toLowerCase();
       if (path.includes('/community')) setActiveNav('Community');
@@ -48,6 +49,17 @@ const Marketplace: React.FC = () => {
     
   return (
     <>
+
+        {/* Glassmorphic Badge */}
+        <div
+          className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full backdrop-blur-md bg-glass-bg/5 border border-glass-border/5 mb-4 sm:mb-8 tracking-tight"
+          style={{
+            boxShadow: "inset 0 2px 12px rgba(255, 255, 255, 0.04)"
+          }}
+        >
+          <Sparkles className="w-3 sm:w-4 h-3 sm:h-4 text-[#FDA205]" />
+          <span className="text-xs sm:text-sm text-[#B4AFA8] font-secondary">Your Sinag Rewards</span>
+        </div>
               
       <section className="mb-6">
         <h1 className="text-3xl font-semibold mb-2">Rewards Exchange</h1>
@@ -74,7 +86,7 @@ const Marketplace: React.FC = () => {
             <button
               key={c}
               onClick={() => setFilter(c)}
-              className={`px-3 py-1 text-sm rounded ${filter === c ? 'bg-blue-600 text-white' : 'bg-neutral text-neutral-300 border border-neutral-800'}`}
+              className={`px-3 py-1 text-sm rounded ${filter === c ? 'bg-[#FE9126] text-white' : 'bg-neutral text-neutral-300 border border-neutral-800'}`}
             >
               {c}
             </button>

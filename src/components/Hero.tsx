@@ -1,6 +1,8 @@
 import { Sparkles, FileText, PieChart, Crown, Users, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LightRays from './LightRays';
+import { ConnectButton, darkTheme, useActiveWallet } from "thirdweb/react";
+import { client } from "../client"
 
 const features = [
   {
@@ -98,14 +100,23 @@ const Hero = () => {
             Sinag helps you track your Meralco consumption, save electricity, and earn eco-rewards.
           </p>
 
-          {/* CTA Button */}
-          <Button
-            size="lg"
-            className="h-10 sm:h-12 md:h-[45px] px-6 sm:px-8 bg-gradient-to-b from-sinag-orange-start to-sinag-orange-end hover:opacity-90 transition-opacity rounded-[50px] text-black font-medium text-sm sm:text-base shadow-lg shadow-sinag-orange-start/20"
-          >
-            <FileText className="w-4 sm:w-5 md:w-6 h-4 sm:h-5 md:h-6 mr-2" />
-            Upload Your Bill
-          </Button>
+          {/* CTA Button with Zap Icon and Connect Wallet */}
+          <div className="h-10 sm:h-12 md:h-[45px] px-6 sm:px-8 bg-gradient-to-b from-sinag-orange-start to-sinag-orange-end hover:opacity-90 transition-opacity rounded-[50px] text-black font-medium text-sm sm:text-base shadow-lg shadow-sinag-orange-start/20 flex items-center justify-center gap-2 w-fit mx-auto">
+            <Zap className="w-4 sm:w-5 md:w-6 h-4 sm:h-5 md:h-6" />
+            <ConnectButton
+              client={client}
+              theme={darkTheme({
+                colors: {
+                  primaryButtonText: "#000000",
+                  primaryButtonBg: "transparent",
+                  secondaryButtonHoverBg: "rgba(0, 0, 0, 0.1)",
+                },
+              })}
+              connectButton={{
+                label: "Start With Sinag",
+              }}
+            />
+          </div>           
         </div>
       </section>
 
@@ -140,8 +151,6 @@ const Hero = () => {
         </div>
       </div>
     </section>
-
-
 
       {/* Footer */}
       <footer className="relative py-12 sm:py-16 px-4 sm:px-6 border-t border-glass-border/10 z-10">
