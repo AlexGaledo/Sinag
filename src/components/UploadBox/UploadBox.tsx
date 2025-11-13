@@ -103,53 +103,59 @@ const UploadBox: React.FC<UploadBoxProps> = ({ onFileSelect }) => {
           update_sinagTokens(data.Token_reward || 0);
           console.log(data.Token_reward);
 
-          // Request backend to mint SINAG tokens to user's wallet
-          if (data.Token_reward && data.Token_reward > 0 && wallet) {
-            const userAddress = wallet.getAccount()?.address;
+      //     // Request backend to mint SINAG tokens to user's wallet
+      //     if (data.Token_reward && data.Token_reward > 0 && wallet) {
+      //       const userAddress = wallet.getAccount()?.address;
             
-            if (userAddress) {
-              try {
-                const mintResponse = await fetch(`${baseUrl}/mint-tokens`, {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    address: userAddress,
-                    amount: data.Token_reward,
-                  }),
-                });
+      //       if (userAddress) {
+      //         try {
+      //           const mintResponse = await fetch(`${baseUrl}/mint-tokens`, {
+      //             method: 'POST',
+      //             headers: {
+      //               'Content-Type': 'application/json',
+      //             },
+      //             body: JSON.stringify({
+      //               address: userAddress,
+      //               amount: data.Token_reward,
+      //             }),
+      //           });
 
-                if (mintResponse.ok) {
-                  const mintData = await mintResponse.json();
-                  console.log('✅ Tokens minted successfully:', mintData);
-                  alert(`🎉 You've earned ${data.Token_reward} SINAG tokens!`);
-                } else {
-                  const errorText = await mintResponse.text();
-                  console.error('Error minting tokens:', errorText);
-                  alert(`Error receiving tokens: ${errorText}`);
-                }
-              } catch (mintError: any) {
-                console.error('Mint request failed:', mintError);
-                alert(`Failed to mint tokens: ${mintError.message}`);
-              }
-            } else {
-              alert('Please connect your wallet to receive tokens');
-            }
-          }
+      //           if (mintResponse.ok) {
+      //             const mintData = await mintResponse.json();
+      //             console.log('✅ Tokens minted successfully:', mintData);
+      //             alert(`🎉 You've earned ${data.Token_reward} SINAG tokens!`);
+      //           } else {
+      //             const errorText = await mintResponse.text();
+      //             console.error('Error minting tokens:', errorText);
+      //             alert(`Error receiving tokens: ${errorText}`);
+      //           }
+      //         } catch (mintError: any) {
+      //           console.error('Mint request failed:', mintError);
+      //           alert(`Failed to mint tokens: ${mintError.message}`);
+      //         }
+      //       } else {
+      //         alert('Please connect your wallet to receive tokens');
+      //       }
+      //     }
 
-          // Update history if available
-          if (data.history && Array.isArray(data.history)) {
-            update_History(data.history);
-          }
+      //     // Update history if available
+      //     if (data.history && Array.isArray(data.history)) {
+      //       update_History(data.history);
+      //     }
+      //   }
+      // } catch (error: any) {
+      //   console.error('OCR Error:', error);
+      //   alert(`Token Limit Reached. Please try again later.`);
+      //   setRes({ error: error.message });
+      // }
         }
       } catch (error: any) {
         console.error('OCR Error:', error);
-        alert(`Token Limit Reached. Please try again later.`);
+        alert(`error occurred during OCR processing.`);
         setRes({ error: error.message });
       }
-    }
-  };
+    };
+  }
 
   return (
     <div
